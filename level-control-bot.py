@@ -155,7 +155,7 @@ def switch_on(update, context):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Switching on plant " + plant)
         #Publishing new on_off value to the plant
         try:
-            client.publish(topics_dict["update"]["plant"+plant],1)
+            client.publish(topics_dict["on_off"]["plant"+plant],1)
         except:
             context.bot.send_message(chat_id=update.effective_chat.id, text="Not connected to the broker, please run start command")
     except:
@@ -168,7 +168,7 @@ def switch_off(update, context):
         context.bot.send_message(chat_id=update.effective_chat.id, text="Switching off plant " + plant)
         #Publishing new on_off value to the plant
         try:
-            client.publish(topics_dict["update"]["plant"+plant],0)
+            client.publish(topics_dict["on_off"]["plant"+plant],0)
         except:
             context.bot.send_message(chat_id=update.effective_chat.id, text="Not connected to the broker, please run start command")
     except:
